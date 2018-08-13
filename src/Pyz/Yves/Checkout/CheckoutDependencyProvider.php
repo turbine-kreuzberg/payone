@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Checkout;
 
+use Generated\Shared\Transfer\PaymentTransfer;
 use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
 use Pyz\Yves\Discount\Handler\VoucherCodeHandler;
 use Pyz\Yves\GiftCard\Cart\Plugin\GiftCardCodeHandler;
@@ -19,7 +20,15 @@ use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Kernel\Plugin\Pimple;
 use Spryker\Yves\Nopayment\Plugin\NopaymentHandlerPlugin;
 use Spryker\Yves\Payment\Plugin\PaymentFormFilterPlugin;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
+use SprykerEco\Yves\Payone\Plugin\PayoneCreditCardSubFormPlugin;
+use SprykerEco\Yves\Payone\Plugin\PayoneDirectDebitSubFormPlugin;
+use SprykerEco\Yves\Payone\Plugin\PayoneEpsOnlineTransferSubFormPlugin;
+use SprykerEco\Yves\Payone\Plugin\PayoneEWalletSubFormPlugin;
+use SprykerEco\Yves\Payone\Plugin\PayoneHandlerPlugin;
+use SprykerEco\Yves\Payone\Plugin\PayoneInvoiceSubFormPlugin;
+use SprykerEco\Yves\Payone\Plugin\PayonePrePaymentSubFormPlugin;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 {
@@ -166,9 +175,29 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     {
         $container->extend(CheckoutDependencyProvider::PAYMENT_METHOD_HANDLER, function (StepHandlerPluginCollection $paymentMethodHandler) {
             $paymentMethodHandler->add(new NopaymentHandlerPlugin(), NopaymentConfig::PAYMENT_PROVIDER_NAME);
+            $paymentMethodHandler->add(new PayoneHandlerPlugin(), PaymentTransfer::PAYONE_INVOICE);
+            $paymentMethodHandler->add(new PayoneHandlerPlugin(), PaymentTransfer::PAYONE_CREDIT_CARD);
+            $paymentMethodHandler->add(new PayoneHandlerPlugin(), PaymentTransfer::PAYONE_DIRECT_DEBIT);
+            $paymentMethodHandler->add(new PayoneHandlerPlugin(), PaymentTransfer::PAYONE_E_WALLET);
+            $paymentMethodHandler->add(new PayoneHandlerPlugin(), PaymentTransfer::PAYONE_ONLINE_TRANSFER);
+            $paymentMethodHandler->add(new PayoneHandlerPlugin(), PaymentTransfer::PAYONE_PRE_PAYMENT);
+            $paymentMethodHandler->add(new PayoneHandlerPlugin(), PaymentTransfer::PAYONE_PAYPAL_EXPRESS_CHECKOUT);
 
             return $paymentMethodHandler;
         });
+
+        $container[static::PAYMENT_SUB_FORMS] = function () {
+            $paymentSubFormPlugin = new SubFormPluginCollection();
+
+            $paymentSubFormPlugin->add(new PayoneInvoiceSubFormPlugin());
+            $paymentSubFormPlugin->add(new PayoneCreditCardSubFormPlugin());
+            $paymentSubFormPlugin->add(new PayoneDirectDebitSubFormPlugin());
+            $paymentSubFormPlugin->add(new PayoneEWalletSubFormPlugin());
+            $paymentSubFormPlugin->add(new PayoneEpsOnlineTransferSubFormPlugin());
+            $paymentSubFormPlugin->add(new PayonePrePaymentSubFormPlugin());
+
+            return $paymentSubFormPlugin;
+        };
 
         return $container;
     }

@@ -129,6 +129,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/spryk.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker-eco/payone.git"
     }
   ],
   "scripts": {

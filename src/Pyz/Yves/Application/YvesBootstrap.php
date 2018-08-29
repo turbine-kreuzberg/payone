@@ -70,6 +70,7 @@ use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigS
 use Spryker\Yves\Url\Plugin\LanguageSwitcherServiceProvider;
 use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestHeaderServiceProvider;
 use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestLogServiceProvider;
+use SprykerEco\Yves\Payone\Plugin\Provider\PayoneControllerProvider;
 
 class YvesBootstrap
 {
@@ -202,6 +203,7 @@ class YvesBootstrap
             new CurrencyControllerProvider($isSsl),
             new ProductReviewControllerProvider($isSsl),
             new PriceControllerProvider($isSsl),
+            new PayoneControllerProvider($isSsl),
         ];
     }
 }

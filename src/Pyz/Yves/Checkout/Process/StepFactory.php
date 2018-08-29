@@ -181,7 +181,7 @@ class StepFactory extends SprykerStepFactory
     {
         return new SuccessStep(
             $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
-            $this->getCartClient(),
+            $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_PAYONE),
             CheckoutControllerProvider::CHECKOUT_SUCCESS,
             ApplicationControllerProvider::ROUTE_HOME
         );

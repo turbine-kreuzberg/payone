@@ -19,7 +19,7 @@ use SprykerEco\Zed\Payone\PayoneConfig;
 $domain = getenv('VM_PROJECT') ?: 'demoshop-nonsplit';
 
 // ---------- Yves host
-$config[ApplicationConstants::HOST_YVES] = 'www.de.suite-nonsplit.local';
+$config[ApplicationConstants::HOST_YVES] = 'www.de.demoshop-nonsplit.local';
 $config[ApplicationConstants::PORT_YVES] = '';
 $config[ApplicationConstants::PORT_SSL_YVES] = '';
 $config[ApplicationConstants::BASE_URL_YVES] = sprintf(
@@ -35,7 +35,7 @@ $config[ApplicationConstants::BASE_URL_SSL_YVES] = sprintf(
 $config[ProductManagementConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
 $config[CustomerConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
 // ---------- Zed host
-$config[ApplicationConstants::HOST_ZED] = 'zed.de.suite-nonsplit.local';
+$config[ApplicationConstants::HOST_ZED] = 'zed.de.demoshop-nonsplit.local';
 $config[ApplicationConstants::PORT_ZED] = '';
 $config[ApplicationConstants::PORT_SSL_ZED] = '';
 $config[ApplicationConstants::BASE_URL_ZED] = sprintf(

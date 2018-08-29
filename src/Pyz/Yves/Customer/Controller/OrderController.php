@@ -11,6 +11,7 @@ use Generated\Shared\Transfer\FilterTransfer;
 use Generated\Shared\Transfer\OrderListTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
 use Generated\Shared\Transfer\PaginationTransfer;
+use Generated\Shared\Transfer\PayoneGetPaymentDetailTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
 class OrderController extends AbstractCustomerController
@@ -126,9 +127,14 @@ class OrderController extends AbstractCustomerController
             $orderTransfer->getBundleItems()
         );
 
+        $getPaymentDetailTransfer = new PayoneGetPaymentDetailTransfer();
+        $getPaymentDetailTransfer->setOrderId($idSalesOrder);
+        $getPaymentDetailTransfer = $this->getFactory()
+            ->getPayoneClient()->getPaymentDetail($getPaymentDetailTransfer);
+
         return [
             'order' => $orderTransfer,
-            'items' => $items,
+            'paymentDetail' => $getPaymentDetailTransfer->getPaymentDetail(),
         ];
     }
 }

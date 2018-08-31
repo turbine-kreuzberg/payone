@@ -29,6 +29,7 @@ use SprykerEco\Yves\Payone\Plugin\PayoneEWalletSubFormPlugin;
 use SprykerEco\Yves\Payone\Plugin\PayoneHandlerPlugin;
 use SprykerEco\Yves\Payone\Plugin\PayoneInvoiceSubFormPlugin;
 use SprykerEco\Yves\Payone\Plugin\PayonePrePaymentSubFormPlugin;
+use SprykerEco\Yves\Payone\Plugin\PayoneSecurityInvoiceSubFormPlugin;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 {
@@ -181,6 +182,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         $container->extend(CheckoutDependencyProvider::PAYMENT_METHOD_HANDLER, function (StepHandlerPluginCollection $paymentMethodHandler) {
             $paymentMethodHandler->add(new NopaymentHandlerPlugin(), NopaymentConfig::PAYMENT_PROVIDER_NAME);
             $paymentMethodHandler->add(new PayoneHandlerPlugin(), PaymentTransfer::PAYONE_INVOICE);
+            $paymentMethodHandler->add(new PayoneHandlerPlugin(), PaymentTransfer::PAYONE_SECURITY_INVOICE);
             $paymentMethodHandler->add(new PayoneHandlerPlugin(), PaymentTransfer::PAYONE_CREDIT_CARD);
             $paymentMethodHandler->add(new PayoneHandlerPlugin(), PaymentTransfer::PAYONE_DIRECT_DEBIT);
             $paymentMethodHandler->add(new PayoneHandlerPlugin(), PaymentTransfer::PAYONE_E_WALLET);
@@ -194,6 +196,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         $container[static::PAYMENT_SUB_FORMS] = function () {
             $paymentSubFormPlugin = new SubFormPluginCollection();
 
+            $paymentSubFormPlugin->add(new PayoneSecurityInvoiceSubFormPlugin());
             $paymentSubFormPlugin->add(new PayoneInvoiceSubFormPlugin());
             $paymentSubFormPlugin->add(new PayoneCreditCardSubFormPlugin());
             $paymentSubFormPlugin->add(new PayoneDirectDebitSubFormPlugin());

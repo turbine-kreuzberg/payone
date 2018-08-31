@@ -100,7 +100,7 @@ $config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_EXPRESS_CHECKOUT_FAILUR
 );
 $config[OmsConstants::PROCESS_LOCATION] = [
     OmsConfig::DEFAULT_PROCESS_LOCATION,
-    $config[KernelConstants::SPRYKER_ROOT] . '/DummyPayment/config/Zed/Oms',
+//    $config[KernelConstants::SPRYKER_ROOT] . '/DummyPayment/config/Zed/Oms',
     APPLICATION_VENDOR_DIR . '/spryker-eco/payone/config/Zed/Oms',
 ];
 $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
@@ -117,6 +117,7 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
     PayoneConfig::PAYMENT_METHOD_BANCONTACT_ONLINE_TRANSFER => 'PayoneOnlineTransfer',
     PayoneConfig::PAYMENT_METHOD_PRE_PAYMENT => 'PayonePrePayment',
     PayoneConfig::PAYMENT_METHOD_INVOICE => 'PayoneInvoice',
+    PayoneConfig::PAYMENT_METHOD_SECURITY_INVOICE => 'PayoneSecurityInvoice',
     PayoneConfig::PAYMENT_METHOD_PAYPAL_EXPRESS_CHECKOUT => 'PayonePaypalExpressCheckout',
     DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'DummyPayment01',
     DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
@@ -130,6 +131,6 @@ $config[OmsConstants::ACTIVE_PROCESSES] = [
     'PayonePrePayment',
     'PayoneInvoice',
     'PayonePaypalExpressCheckout',
-    'DummyPayment01',
+    'PayoneSecurityInvoice',
     'PayonePaypalExpressCheckout'
 ];

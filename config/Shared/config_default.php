@@ -363,21 +363,6 @@ $config[NopaymentConstants::WHITELIST_PAYMENT_METHODS] = [
     GiftCardConfig::PROVIDER_NAME,
 ];
 
-// ---------- State machine (OMS)
-$config[OmsConstants::PROCESS_LOCATION] = [
-    OmsConfig::DEFAULT_PROCESS_LOCATION,
-];
-$config[OmsConstants::ACTIVE_PROCESSES] = [
-    'DummyPayment01',
-    'Nopayment01',
-];
-$config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
-    DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'DummyPayment01',
-    DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
-    GiftCardConfig::PROVIDER_NAME => 'DummyPayment01',
-    NopaymentConfig::PAYMENT_PROVIDER_NAME => 'Nopayment01',
-];
-
 // ---------- NewRelic
 $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 

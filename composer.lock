@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4093f53d23fca7c67365dc82bee403c",
+    "content-hash": "20620e827f509ff60f440e19ab0f7188",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2273,11 +2273,11 @@
         },
         {
             "name": "spryker-eco/payone",
-            "version": "1.3.1",
+            "version": "dev-feature/eco-1936/dev-security-invoice",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker-eco/payone.git",
-                "reference": "143b02782762faf29f1e31f6d2ac7487c8d3b18b"
+                "reference": "4b96b99450515fbeee57beafe0254b216b3fac1f"
             },
             "require": {
                 "spryker/config": "^3.0.0",
@@ -2324,7 +2324,7 @@
                 "proprietary"
             ],
             "description": "Payone module",
-            "time": "2018-07-06T12:56:33+00:00"
+            "time": "2018-09-05T11:48:47+00:00"
         },
         {
             "name": "spryker/event-behavior",
@@ -8957,6 +8957,7 @@
         "spryker/event-behavior": 20,
         "spryker/synchronization-behavior": 20,
         "spryker/install": 20,
+        "spryker-eco/payone": 20,
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
         "spryker/code-sniffer": 20,

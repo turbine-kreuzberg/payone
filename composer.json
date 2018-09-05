@@ -63,7 +63,7 @@
     "league/oauth2-server": "^7.1",
     "willdurand/negotiation": "^2.3",
     "ramsey/uuid": "^3.8.0",
-    "spryker-eco/payone": "^1.3"
+    "spryker-eco/payone": "dev-feature/eco-1936/dev-security-invoice"
   },
   "require-dev": {
     "spryker/architecture-sniffer": "dev-master",

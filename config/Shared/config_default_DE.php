@@ -65,10 +65,10 @@ $config[EventConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/a
 // ---------- Payone
 $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
-    PayoneConstants::PAYONE_CREDENTIALS_KEY => 'Atf7vFdpMvhqlQwJ',
+    PayoneConstants::PAYONE_CREDENTIALS_KEY => '6R7j3031dPSUvI85',
     PayoneConstants::PAYONE_CREDENTIALS_MID => '32481',
     PayoneConstants::PAYONE_CREDENTIALS_AID => '32893',
-    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => '2026219',
+    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => '2030040',
     PayoneConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
     PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL => sprintf(
         '%s/checkout/success',
